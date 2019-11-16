@@ -8,29 +8,25 @@ def join_ingredients(array)
 	new_array
 end
 
-def find_greater_pair(src)
-  # src will be an array of [ [number1, number2], ... [numberN, numberM] ]
-  # Produce a new Array that contains the larger number of each of the pairs
-  # that are in the inner Arrays
-  
-  result_array = []
-  outter_index = 0
-  while outter_index < src.length do
-    larger_num = src[outter_index][0]
-    inner_index = 0
-    while inner_index < src[outter_index].length do
-        if src[outter_index][inner_index] > larger_num
-          larger_num = src[outter_index][inner_index]
-          result_array.push(larger_num)
-        end
-        inner_index += 1 
-    end
-    
-    outter_index += 1 
-   end
-   return result_array
+def find(array)
+	row_index = 0
+	result_array = []
+	while row_index < array.length do 
+		larger_num = array[row_index][0]
+		inner_index = 1
+		while inner_index < array[row_index].length do 
+			if array[row_index][inner_index] > larger_num
+				larger_num = array[row_index][inner_index]
+			end
+			result_array << larger_num
+			inner_index += 1
+		end
+		row_index += 1
+	end
+	result_array
 end
 
+puts find_larger(array_2)
 def total_even_pairs(src)
   # src will be an array of [ [number1, number2], ... [numberN, numberM] ]
   # if both numbers in the pair are even, then add both those numbers to the
